@@ -10,13 +10,13 @@
         <TabControl Name="MyTabControl"
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Stretch" >
-            <TabItem Header="TabItem">
+            <TabItem Header="Ink API">
                 <Grid Background="#AFEEEE"/>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Data Binding">
                 <Grid Background="#AFEEEE"/>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="DataGrid">
                 <Grid Background="#AFEEEE"/>
             </TabItem>
         </TabControl>
