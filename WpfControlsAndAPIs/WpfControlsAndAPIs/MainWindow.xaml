@@ -8,17 +8,47 @@
         Title="Головне вікно" Height="350" Width="800">
     <Grid>
         <TabControl Name="MyTabControl"
+                    Margin="10,0,10,5"
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Stretch" >
             <TabItem Header="Ink API">
-                <Grid Background="#AFEEEE"/>
+                <StackPanel Background="#AFEEEE">
+                    <ToolBar Name="InkToolBar" Height="60">
+                        <Border Margin="0,2,0,2.4"
+                                Width="280"
+                                VerticalAlignment="Top">
+                            <WrapPanel>
+                                <RadioButton x:Name="inkRadio" 
+                                             Margin="5,10"
+                                             Content="Ink Mode!"
+                                             IsChecked="True" />
+                                <RadioButton x:Name="eraseRadio"
+                                             Margin="5,10"
+                                             Content="Erase Mode!" />
+                                <RadioButton x:Name="selectRadio"
+                                             Margin="5,10"
+                                             Content="Select Mode!" />
+                                <Separator/>
+                                </WrapPanel>
+                            </Border>
+                        </ToolBar>
+                </StackPanel>
             </TabItem>
             <TabItem Header="Data Binding">
-                <Grid Background="#AFEEEE"/>
+                <StackPanel Background="#AFEEEE">
+
+                </StackPanel>
             </TabItem>
             <TabItem Header="DataGrid">
-                <Grid Background="#AFEEEE"/>
+                <StackPanel Background="#AFEEEE">
+
+                </StackPanel>
             </TabItem>
-        </TabControl>
+        </TabControl>   
+                
+                  
+
+        
+
     </Grid>
 </Window>
