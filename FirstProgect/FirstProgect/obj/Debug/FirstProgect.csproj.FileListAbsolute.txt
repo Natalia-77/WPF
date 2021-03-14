@@ -1,0 +1,15 @@
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\bin\Debug\FirstProgect.exe.config
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\bin\Debug\FirstProgect.exe
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\bin\Debug\FirstProgect.pdb
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect.csprojAssemblyReference.cache
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\MainWindow.g.cs
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\App.g.cs
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect_MarkupCompile.cache
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect_MarkupCompile.lref
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\MainWindow.baml
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect.g.resources
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect.Properties.Resources.resources
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect.csproj.GenerateResource.cache
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect.csproj.CoreCompileInputs.cache
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect.exe
+D:\Natalia\Project1\DataBase\FirstProgect\FirstProgect\obj\Debug\FirstProgect.pdb

@@ -1,0 +1,39 @@
+﻿<Window x:Class="FirstProgect.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FirstProgect"
+        mc:Ignorable="d"
+        Title="Головне вікно" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center"
+                   Margin="326,198,335.6,178" 
+                   Text="Привіт)))"
+                   VerticalAlignment="Center"
+                   FontSize="24" 
+                   FontWeight="Bold"
+                   FontFamily="SimSun-ExtB"
+                   Foreground="#FF121254" Height="44" Width="132"/>
+        <Button Name="btnBegin"
+                HorizontalAlignment="Left"
+                Margin="263,301,0,0" 
+                VerticalAlignment="Top" 
+                Width="294" Height="79"
+                FontSize="24"
+                RenderTransformOrigin="0.862,0.955" 
+                Background="#FFA7D5E0" 
+                FontWeight="Bold" Click="btnBegin_Click">            
+            <Button.Content>
+                <WrapPanel>
+                    <Image Source="Images/1.jpg" />
+                    <TextBlock Text="Привіт"
+                               TextAlignment="Center"
+                               VerticalAlignment="Center"
+                           FontSize="28" />
+                </WrapPanel>
+            </Button.Content>
+            </Button>
+
+    </Grid>
+</Window>
