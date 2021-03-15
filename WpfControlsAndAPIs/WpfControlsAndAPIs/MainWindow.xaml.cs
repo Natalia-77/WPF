@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -28,7 +30,7 @@ namespace WpfControlsAndAPIs
             this.comboColors.SelectedIndex = 0;
         }
 
-        private void ColorChanged (object sender, SelectionChangedEventArgs e)
+        private void ColorChanged(object sender, SelectionChangedEventArgs e)
         {
 
 
@@ -58,6 +60,34 @@ namespace WpfControlsAndAPIs
                     this.MyInkCanvas.EditingMode = InkCanvasEditingMode.Select;
                     break;
             }
+        }
+
+        private void SaveData(object sender, RoutedEventArgs e)
+        {
+            // Сохранить все данные InkCanvas в локальном файле.
+
+            using (FileStream fs = new FileStream("StrokeData.bin", FileMode.Create))
+            {
+                this.MyInkCanvas.Strokes.Save(fs);
+                fs.Close();
+            }
+
+
+        }
+        private void LoadData(object sender, RoutedEventArgs e)
+        {
+            // Наполнить StrokeCollection из файла.
+            using (FileStream fs = new FileStream("StrokeData.bin",
+            FileMode.Open, FileAccess.Read))
+            {
+                StrokeCollection strokes = new StrokeCollection(fs);
+                this.MyInkCanvas.Strokes = strokes;
+            }
+        }
+        private void Clear(object sender, RoutedEventArgs e)
+        {
+            // Очистить все штрихи.
+            this.MyInkCanvas.Strokes.Clear();
         }
 
     }
