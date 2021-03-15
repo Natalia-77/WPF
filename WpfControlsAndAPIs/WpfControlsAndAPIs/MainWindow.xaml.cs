@@ -23,6 +23,15 @@ namespace WpfControlsAndAPIs
         public MainWindow()
         {
             InitializeComponent();
+            //this.MyInkCanvas.EditingMode = InkCanvasEditingMode.Ink;
+            this.inkRadio.IsChecked = true;
+            this.comboColors.SelectedIndex = 0;
+        }
+
+        private void ColorChanged (object sender, SelectionChangedEventArgs e)
+        {
+            
+            string colorToUse = (this.comboColors.SelectedItem as StackPanel).Tag.ToString();
         }
     }
 }

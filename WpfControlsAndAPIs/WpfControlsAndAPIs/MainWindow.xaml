@@ -27,11 +27,76 @@
                                              Content="Erase Mode!" />
                                 <RadioButton x:Name="selectRadio"
                                              Margin="5,10"
-                                             Content="Select Mode!" />
-                                <Separator/>
-                                </WrapPanel>
-                            </Border>
+                                            Content="Select Mode!" />                               
+                                                               
+                            </WrapPanel>                       
+                        </Border>
+                        <Separator/>
+                        <ComboBox x:Name="comboColors"
+                                  Width="170"  
+                                  SelectionChanged="ColorChanged"
+                                  Margin="10,5,0,0"
+                                  VerticalAlignment="Top">
+                            <StackPanel Orientation ="Horizontal" 
+                                        Tag="Red">
+                                <Ellipse Fill ="Red"
+                                         Height ="20"
+                                         Width ="20"/>
+                                <Label FontSize ="20" 
+                                       HorizontalAlignment="Center"                                       
+                                       VerticalAlignment="Center"
+                                       Content="Red"/>
+                            </StackPanel>
+                            <StackPanel Orientation ="Horizontal" 
+                                        Tag="Green">
+                                <Ellipse Fill ="#00FF00"
+                                         Height ="20"
+                                         Width ="20"/>
+                                <Label FontSize ="20"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Content="Green"/>
+                            </StackPanel>
+
+                            <StackPanel Orientation ="Horizontal"
+                                        Tag="Yellow">
+                                <Ellipse Fill ="#FFFF00"
+                                         Height ="20"
+                                         Width ="20"/>
+                                <Label FontSize ="20"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Content="Yellow"/>
+                            </StackPanel>
+                            <!--<ComboBoxItem Content="Red"/>
+                            <ComboBoxItem Content="Green"/>
+                            <ComboBoxItem Content="Blue"/>-->
+                        </ComboBox>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" x:Name="btnSave"                                       
+                                        Background="#90EE90"
+                                        Margin="10,10"                                        
+                                        Width="70" 
+                                        Content="Save Data"/>
+                                <Button Grid.Column="1" x:Name="btnLoad"
+                                        Background="#7FFFD4"
+                                        Margin="10,10"
+                                        Width="70"
+                                        Content="Load Data"/>
+                                <Button Grid.Column="2" x:Name="btnClear"
+                                        Background="#D8BFD8"
+                                        Margin="10,10"
+                                        Width="70"
+                                        Content="Clear"/>
+                                </Grid>
                         </ToolBar>
+                    <InkCanvas x:Name="MyInkCanvas"
+                              Background="#F5DEB3" />
                 </StackPanel>
             </TabItem>
             <TabItem Header="Data Binding">
@@ -44,11 +109,11 @@
 
                 </StackPanel>
             </TabItem>
-        </TabControl>   
-                
-                  
+        </TabControl>
 
-        
+
+
+
 
     </Grid>
 </Window>
