@@ -42,7 +42,7 @@
                                 <Ellipse Fill ="Red"
                                          Height ="20"
                                          Width ="20"/>
-                                <Label FontSize ="20" 
+                                <Label FontSize ="10" 
                                        HorizontalAlignment="Center"                                       
                                        VerticalAlignment="Center"
                                        Content="Red"/>
@@ -52,7 +52,7 @@
                                 <Ellipse Fill ="#00FF00"
                                          Height ="20"
                                          Width ="20"/>
-                                <Label FontSize ="20"
+                                <Label FontSize ="10"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        Content="Green"/>
@@ -63,7 +63,7 @@
                                 <Ellipse Fill ="#FFFF00"
                                          Height ="20"
                                          Width ="20"/>
-                                <Label FontSize ="20"
+                                <Label FontSize ="10"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        Content="Yellow"/>
