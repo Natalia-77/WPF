@@ -21,13 +21,16 @@
                                 <RadioButton x:Name="inkRadio" 
                                              Margin="5,10"
                                              Content="Ink Mode!"
-                                             IsChecked="True" />
+                                             IsChecked="True" 
+                                             Click="RadioButtonClicked"/>
                                 <RadioButton x:Name="eraseRadio"
                                              Margin="5,10"
-                                             Content="Erase Mode!" />
+                                             Content="Erase Mode!"
+                                             Click="RadioButtonClicked"/>
                                 <RadioButton x:Name="selectRadio"
                                              Margin="5,10"
-                                            Content="Select Mode!" />                               
+                                            Content="Select Mode!" 
+                                             Click="RadioButtonClicked"/>                               
                                                                
                             </WrapPanel>                       
                         </Border>
