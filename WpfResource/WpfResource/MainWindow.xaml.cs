@@ -27,8 +27,11 @@ namespace WpfResource
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Resources["backcolor"] = new SolidColorBrush(Colors.Red);
-           
+            ///Resources["backcolor"] = new SolidColorBrush(Colors.Red);
+
+            Button cmd = (Button)sender;
+            SolidColorBrush brush = (SolidColorBrush)cmd.FindResource("TileBrush");
+
         }
     }
 }

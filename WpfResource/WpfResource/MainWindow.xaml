@@ -23,9 +23,7 @@
             Padding="15"
             Margin="20"
             FontSize="20"    
-            Background="{DynamicResource backcolor}"
-           
-            >
+            Background="{DynamicResource backcolor}">
             <Button.Resources>
                 <!--<SolidColorBrush x:Key="backcolor" Color="#87CEEB"/>-->
             </Button.Resources>
@@ -34,8 +32,8 @@
                 Padding="15"
                 Margin="20,20,500,40"
                 FontSize="20"
-                Background="#9ACD32"
-                 Click="Button_Click"
+                Background="#FFC0CB"
+                Click="Button_Click"
                 />
     </StackPanel>
 </Window>
