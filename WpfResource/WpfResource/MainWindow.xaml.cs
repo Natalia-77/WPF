@@ -24,5 +24,11 @@ namespace WpfResource
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Resources["backcolor"] = new SolidColorBrush(Colors.Red);
+           
+        }
     }
 }
