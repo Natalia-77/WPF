@@ -28,10 +28,30 @@ namespace WpfResource
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ///Resources["backcolor"] = new SolidColorBrush(Colors.Red);
-
+            ///Якщо назва ресурсу неправильна.
             Button cmd = (Button)sender;
-            SolidColorBrush brush = (SolidColorBrush)cmd.FindResource("TileBrush");
+            try
+            {               
+                SolidColorBrush brush = (SolidColorBrush)cmd.FindResource("TileBrush");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }          
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+           
+            try
+            {                
+                Resources["backcolor"] = new SolidColorBrush(Colors.Red);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

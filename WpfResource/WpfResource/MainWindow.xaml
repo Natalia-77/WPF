@@ -10,7 +10,7 @@
         <SolidColorBrush x:Key="backcolor" Color="#00FF7F"/>
     </Window.Resources>
     
-    <StackPanel Margin="45">
+    <StackPanel Margin="35">
         <Button 
             Content="Static resource"
             Padding="15"
@@ -28,12 +28,16 @@
                 <!--<SolidColorBrush x:Key="backcolor" Color="#87CEEB"/>-->
             </Button.Resources>
         </Button>
-        <Button Content="Push to action"
+        <Button Content="Push(exception)"
                 Padding="15"
-                Margin="20,20,500,40"
+                Margin="20,10,500,10"
                 FontSize="20"
                 Background="#FFC0CB"
-                Click="Button_Click"
-                />
+                Click="Button_Click"/>
+        <Button Content="Push to action dynamic"
+                Padding="15"
+                FontSize="16"
+                Margin="20,5,500,20"
+                Background="#9370DB" Click="Button_Click_1"/>
     </StackPanel>
 </Window>
