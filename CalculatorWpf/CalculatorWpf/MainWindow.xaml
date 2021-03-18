@@ -1,0 +1,180 @@
+﻿<Window x:Class="CalculatorWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculatorWpf"
+        mc:Ignorable="d"
+        Title="Calculator" Height="300" Width="330">
+    
+    <!--<Window.Resources>
+        <Style x:Key="test" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="ButtonBorder" CornerRadius="5" BorderThickness="2" BorderBrush="#0000CD" Background="#FFF5EE">
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="colorbar" Color="#FFF5EE"/>
+
+        <Style x:Key="test2" TargetType="TextBox">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Name="TextboxBorder" CornerRadius="5" BorderThickness="2" BorderBrush="#0000CD" Background="#FFFAFA">
+                           <ContentPresenter  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>-->
+
+    <Grid>
+        <TextBox x:Name="tb_boxres"
+                 Text="OFF"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 TextAlignment="Left"
+                 Height="50"
+                 Width="301"                 
+                 Margin="5,0,0,0" />
+        <!--"{StaticResource test2}"-->
+
+        <WrapPanel x:Name="wrap_panel">
+            
+            <Button x:Name="btn_seven"
+                    Height="50"
+                    Width="60"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="5,50,0,0"                 
+                    Content="7" 
+                    Click="btn_buttons_Click"/>
+            <Button x:Name="btn_eight"
+                    Height="50"
+                    Width="60"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="0,50"
+                    Content="8"/>
+            <Button x:Name="btn_nine"
+                    Height="50"
+                    Width="60"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="0,50"                   
+                    Content="9"/>
+            <Button x:Name="btn_minus"
+                    Height="50"
+                    Width="60"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Margin="0,50"                   
+                    Content="-"/>
+            <Button x:Name="btnOn"
+                    Content="C"
+                    Height="50"
+                    Width="60"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="0,50"
+                    Click="btnOn_Click"/>
+            <Button x:Name="btn_four"
+                    Height="50"
+                    Width="60"
+                    Margin="5,-50"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                
+                    Content="4"/>
+            <Button x:Name="btn_five"
+                    Height="50"
+                    Width="60"
+                    Margin="-5,-50"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="5"/>
+            <Button x:Name="btn_six"
+                    Height="50"
+                    Width="60"
+                    Margin="5,-50"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="6"/>
+            <Button x:Name="btn_plus"
+                    Height="50"
+                    Width="60"
+                    Margin="-5,-50"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="+"/>
+            <Button x:Name="btn_double"
+                    Height="50"
+                    Width="60"
+                    Margin="5,-50"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="/"/>            
+            <Button x:Name="btn_one"
+                    Height="50"
+                    Width="60"
+                    Margin="5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="1"/>
+            <Button x:Name="btn_two"
+                    Height="50"
+                    Width="60"
+                    Margin="-5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="2"/>
+            <Button x:Name="btn_three"
+                    Height="50"
+                    Width="60"
+                    Margin="5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="3"/>
+            <Button x:Name="btn_umn"
+                    Height="50"
+                    Width="60"
+                    Margin="-5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                   
+                    Content="*"/>
+            <Button x:Name="btn_dot"
+                    Height="50"
+                    Width="60"
+                    Margin="5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="."/>
+            <Button x:Name="btn_zero"
+                    Height="50"
+                    Width="60"
+                    Margin="5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                  
+                    Content="0"/>
+            <Button x:Name="btn_dotdouble"
+                    Height="50"
+                    Width="60"
+                    Margin="-5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                   
+                    Content="00"/>
+            <Button x:Name="btn_res"
+                    Height="50"
+                    Width="180"
+                    Margin="5,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"                   
+                     Content="="/>
+        </WrapPanel>
+    </Grid>
+</Window>
