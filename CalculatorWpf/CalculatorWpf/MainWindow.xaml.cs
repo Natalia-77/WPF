@@ -42,6 +42,7 @@ namespace CalculatorWpf
                 //tb_boxres.IsEnabled = true;
                 //MessageBox.Show("+");
             }
+
         }
     }
 }
