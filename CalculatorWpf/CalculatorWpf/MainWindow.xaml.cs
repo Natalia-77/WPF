@@ -94,6 +94,21 @@ namespace CalculatorWpf
                         value_second = (num1 + num2).ToString();
                         break;
                     }
+                case "/":
+                    {
+                        try
+                        {
+                            value_second = (num1 / num2).ToString();
+
+                        }
+                        catch (DivideByZeroException ex)
+                        {
+                            MessageBox.Show(ex.Message);
+
+                        }
+                       
+                        break;
+                    }
                     
 
             }
