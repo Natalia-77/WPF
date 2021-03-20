@@ -22,15 +22,21 @@ namespace CalculatorWpf
     {
         public MainWindow()
         {
-            InitializeComponent();           
-            //wrap_panel.IsEnabled = false;
-            //tb_boxres.IsEnabled = false;           
+            InitializeComponent();          
+                    
         }
 
         private void btn_buttons_Click(object sender, RoutedEventArgs e)
         {
+            int value;
             Button button = (Button)sender;
-            tb_boxres.Text += button.Content;
+            string str = (string)((Button)e.OriginalSource).Content;
+            tb_boxres.Text +=str;
+            bool res = int.TryParse(str, out value);
+            if(res)
+            {
+                MessageBox.Show("chislo");
+            }
         }
 
         private void btnOn_Click(object sender, RoutedEventArgs e)
