@@ -11,7 +11,7 @@
         <SolidColorBrush x:Key="colorbackbutton" Color="#FFEBCD"/>
     </Window.Resources>
 
-    <DockPanel Margin="10">
+    <DockPanel Margin="15">
         <StackPanel  DockPanel.Dock="Right" Margin="10,0,0,0">
             <Button Name="btnAddUser"
                     Background="{StaticResource colorbackbutton}"
