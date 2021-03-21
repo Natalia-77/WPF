@@ -6,18 +6,18 @@
         xmlns:local="clr-namespace:CatShop"
         mc:Ignorable="d"
         Title="CatShop)))" Height="450" Width="800">
-    
+
     <Window.Resources>
-        <SolidColorBrush x:Key="colorbackbutton" Color="#FFEBCD"/>       
+        <SolidColorBrush x:Key="colorbackbutton" Color="#FFEBCD"/>
     </Window.Resources>
-  
-            <DockPanel Margin="10">
-        <StackPanel  DockPanel.Dock="Right" Margin="10,0,0,0">           
+
+    <DockPanel Margin="10">
+        <StackPanel  DockPanel.Dock="Right" Margin="10,0,0,0">
             <Button Name="btnAddUser"
                     Background="{StaticResource colorbackbutton}"
                     Content="Add cat's info">
                 <Button.Effect>
-                    <DropShadowEffect  Color="#FFB6C1"/>                       
+                    <DropShadowEffect  Color="#FFB6C1"/>
                 </Button.Effect>
             </Button>
             <Button Name="btnChangeUser"
@@ -25,7 +25,7 @@
                     Background="{StaticResource colorbackbutton}" 
                     Content="Edit cat's info">
                 <Button.Effect>
-                    <DropShadowEffect Color="#FFB6C1"/>                   
+                    <DropShadowEffect Color="#FFB6C1"/>
                 </Button.Effect>
             </Button>
             <Button Name="btnDeleteUser" 
@@ -36,29 +36,58 @@
                 </Button.Effect>
             </Button>
         </StackPanel>
-                
-                
-        <DataGrid Name="dgSimple" AutoGenerateColumns="false">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Cat's name" Binding="{Binding Name}"/>                
-                <DataGridTemplateColumn Header="Birthday">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding Birthday}" BorderThickness="0" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
-            </DataGrid.Columns>
-            <DataGrid.RowDetailsTemplate>
-                <DataTemplate>
-                    <DockPanel Background="#FFE4E1">
-                        <Image DockPanel.Dock="Left" Source="{Binding ImageUrl}" Height="64" Margin="10" />
-                    </DockPanel>
-                </DataTemplate>
-            </DataGrid.RowDetailsTemplate>
-        </DataGrid>
 
-    </DockPanel>
-   
+        <ScrollViewer HorizontalScrollBarVisibility="Visible">
+            <Grid ShowGridLines="False">
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="200"/>
+                    <RowDefinition MinHeight="200"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="550"/>
+                    <ColumnDefinition MinWidth="300" />
+                </Grid.ColumnDefinitions>
+                <DataGrid Name="dgSimple" AutoGenerateColumns="false">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Cat's name" Binding="{Binding Name}"/>
+                        <DataGridTemplateColumn Header="Birthday">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding Birthday}" BorderThickness="0" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+
+                    </DataGrid.Columns>
+                    <DataGrid.RowDetailsTemplate>
+                        <DataTemplate>
+                            <DockPanel Background="#FFE4E1">
+                                <Image DockPanel.Dock="Left" Source="{Binding ImageUrl}" Height="64" Margin="10" />
+                                <Grid Margin="0,10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="ID: " FontWeight="Bold" />
+                                    <TextBlock Text="{Binding Id}" Grid.Column="1" />
+                                    <TextBlock Text="Name: " FontWeight="Bold" Grid.Row="1" />
+                                    <TextBlock Text="{Binding Name}" Grid.Column="1" Grid.Row="1" />
+                                    <TextBlock Text="Birthday: " FontWeight="Bold" Grid.Row="2" />
+                                    <TextBlock Text="{Binding Birthday, StringFormat=d}" Grid.Column="1" Grid.Row="2" />
+                                    <!--<TextBlock Text="{Binding Details}" Margin="10" Grid.ColumnSpan="2" />-->
+                                </Grid>
+                            </DockPanel>
+                        </DataTemplate>
+                    </DataGrid.RowDetailsTemplate>
+                </DataGrid>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>    
 </Window>
