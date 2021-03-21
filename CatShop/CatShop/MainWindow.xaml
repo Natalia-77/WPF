@@ -38,18 +38,18 @@
         </StackPanel>
 
         <ScrollViewer HorizontalScrollBarVisibility="Visible">
-            <Grid ShowGridLines="False">
+            <Grid ShowGridLines="False" >
                 <Grid.RowDefinitions>
                     <RowDefinition MinHeight="200"/>
-                    <RowDefinition MinHeight="200"/>
+                    <!--<RowDefinition MinHeight="200"/>-->
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition  Width="550"/>
-                    <ColumnDefinition MinWidth="300" />
+                    <ColumnDefinition  Width="570"/>
+                    <!--<ColumnDefinition MinWidth="300" />-->
                 </Grid.ColumnDefinitions>
-                <DataGrid Name="dgSimple" AutoGenerateColumns="false">
+                <DataGrid Name="dgSimple" AutoGenerateColumns="false" Margin="0,0,0.4,72.2" >
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Cat's name" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="Cat's name" Width="80" Binding="{Binding Name}"/>
                         <DataGridTemplateColumn Header="Birthday">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -57,9 +57,8 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Price" Binding="{Binding Price}"/>
+                        <DataGridTextColumn Header="Price" Width="60" Binding="{Binding Price}"/>
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-
                     </DataGrid.Columns>
                     <DataGrid.RowDetailsTemplate>
                         <DataTemplate>
@@ -89,5 +88,5 @@
                 </DataGrid>
             </Grid>
         </ScrollViewer>
-    </DockPanel>    
+    </DockPanel>
 </Window>
