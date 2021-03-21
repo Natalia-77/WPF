@@ -20,9 +20,21 @@ namespace CatShop
     /// </summary>
     public partial class MainWindow : Window
     {
+        CatVM cat = new CatVM();
         public MainWindow()
         {
             InitializeComponent();
+            cat.PropertyChanged += Cat_PropertyChanged;
+        }
+
+        private void Cat_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void btnAddUser_Click(object sender, RoutedEventArgs e)
+        {
+            cat.Name = "Murrr";
         }
     }
 }
