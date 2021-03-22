@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatShop.Domain", "CatShop.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatShop.EFData", "CatShop.EFData\CatShop.EFData.csproj", "{7BE72DEC-50F4-4500-9C9B-E7EB8C8DA8F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatShop.Application", "CatShop.Application\CatShop.Application.csproj", "{FDC4BA51-37F8-4B65-A0A0-2F154D617F3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7BE72DEC-50F4-4500-9C9B-E7EB8C8DA8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BE72DEC-50F4-4500-9C9B-E7EB8C8DA8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BE72DEC-50F4-4500-9C9B-E7EB8C8DA8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDC4BA51-37F8-4B65-A0A0-2F154D617F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC4BA51-37F8-4B65-A0A0-2F154D617F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC4BA51-37F8-4B65-A0A0-2F154D617F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC4BA51-37F8-4B65-A0A0-2F154D617F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

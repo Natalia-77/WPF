@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CatShop.Domain\CatShop.Domain.csproj" />
+    <ProjectReference Include="..\CatShop.EFData\CatShop.EFData.csproj" />
+  </ItemGroup>
+
+</Project>

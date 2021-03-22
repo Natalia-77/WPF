@@ -19,6 +19,8 @@ namespace CatShop.Domain
         [Required, StringLength(4000)]
         public string Description { get; set; }
 
+        public string Gender { get; set; }
+
         [StringLength(255)]
         public string Image { get; set; }
     }
