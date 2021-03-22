@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CatShop
+namespace Domain
 {
     public class CatVM : INotifyPropertyChanged
     {
@@ -20,7 +20,7 @@ namespace CatShop
         public string Name
         {
             get { return _name; }
-            set 
+            set
             {
                 _name = value;
                 NotifyPropertyChanged("Name");
@@ -71,8 +71,8 @@ namespace CatShop
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string property_name)
-        {          
-              PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property_name));
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property_name));
         }
     }
 }
