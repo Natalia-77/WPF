@@ -11,6 +11,11 @@ namespace CatShop
     {
 
         private string _name;
+        private DateTime _birth;
+        private int _price;
+        private string _description;
+        private string _image;
+
 
         public string Name
         {
@@ -21,6 +26,48 @@ namespace CatShop
                 NotifyPropertyChanged("Name");
             }
         }
+
+        public DateTime Birthday
+        {
+            get { return _birth; }
+            set
+            {
+                _birth = value;
+                NotifyPropertyChanged("Birthday");
+            }
+        }
+
+        public int Price
+        {
+            get { return _price; }
+            set
+            {
+                _price = value;
+                NotifyPropertyChanged("Price");
+            }
+        }
+
+        public string Description
+        {
+            get { return _description; }
+            set
+            {
+                _description = value;
+                NotifyPropertyChanged("Description");
+            }
+        }
+
+        public string Image
+        {
+            get { return _image; }
+            set
+            {
+                _image = value;
+                NotifyPropertyChanged("Image");
+            }
+        }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void NotifyPropertyChanged(string property_name)

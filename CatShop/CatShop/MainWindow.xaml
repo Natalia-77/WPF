@@ -9,7 +9,13 @@
 
     <Window.Resources>
         <SolidColorBrush x:Key="colorbackbutton" Color="#FFEBCD"/>
+        <Style TargetType="{x:Type TextBlock}" x:Key="DataGridCellTextWrap">
+            <Setter Property="TextBlock.TextWrapping" Value="Wrap"></Setter>
+        </Style>
     </Window.Resources>
+   
+
+
 
     <DockPanel Margin="15">
         <StackPanel  DockPanel.Dock="Right" Margin="10,0,0,0">
@@ -37,17 +43,17 @@
             </Button>
         </StackPanel>
 
-        <ScrollViewer HorizontalScrollBarVisibility="Visible">
+       <!-- <ScrollViewer HorizontalScrollBarVisibility="Visible">-->
             <Grid ShowGridLines="False" >
                 <Grid.RowDefinitions>
-                    <RowDefinition MinHeight="200"/>
-                    <!--<RowDefinition MinHeight="200"/>-->
-                </Grid.RowDefinitions>
+                    <RowDefinition Height="400"/>
+                <RowDefinition MinHeight="200"/>
+            </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition  Width="570"/>
-                    <!--<ColumnDefinition MinWidth="300" />-->
-                </Grid.ColumnDefinitions>
-                <DataGrid Name="dgSimple" AutoGenerateColumns="false" Margin="0,0,0.4,72.2" >
+                    <ColumnDefinition  Width="670"/>
+                <ColumnDefinition MinWidth="300" />
+            </Grid.ColumnDefinitions>
+                <DataGrid Name="dgSimple" AutoGenerateColumns="false" Margin="0,0,15,72.2" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Cat's name" Width="80" Binding="{Binding Name}"/>
                         <DataGridTemplateColumn Header="Birthday">
@@ -58,12 +64,14 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn Header="Price" Width="60" Binding="{Binding Price}"/>
-                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                        <DataGridTextColumn Header="Description" ElementStyle="{StaticResource DataGridCellTextWrap}"  Binding="{Binding Description}">
+                                                
+                      </DataGridTextColumn>
                     </DataGrid.Columns>
                     <DataGrid.RowDetailsTemplate>
                         <DataTemplate>
-                            <DockPanel Background="#FFE4E1">
-                                <Image DockPanel.Dock="Left" Source="{Binding ImageUrl}" Height="64" Margin="10" />
+                            <DockPanel Background="#DC143C">
+                                <Image DockPanel.Dock="Left" Source="{Binding Image}" Height="64" Margin="15" />
                                 <Grid Margin="0,10">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
@@ -74,11 +82,11 @@
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
-                                    <TextBlock Text="ID: " FontWeight="Bold" />
+                                    <TextBlock Text="Інвентарний номер: " FontWeight="Bold" />
                                     <TextBlock Text="{Binding Id}" Grid.Column="1" />
-                                    <TextBlock Text="Name: " FontWeight="Bold" Grid.Row="1" />
+                                    <TextBlock Text="Кличка: " FontWeight="Bold" Grid.Row="1" />
                                     <TextBlock Text="{Binding Name}" Grid.Column="1" Grid.Row="1" />
-                                    <TextBlock Text="Birthday: " FontWeight="Bold" Grid.Row="2" />
+                                    <TextBlock Text="Дата народження: " FontWeight="Bold" Grid.Row="2" />
                                     <TextBlock Text="{Binding Birthday, StringFormat=d}" Grid.Column="1" Grid.Row="2" />
                                     <!--<TextBlock Text="{Binding Details}" Margin="10" Grid.ColumnSpan="2" />-->
                                 </Grid>
@@ -87,6 +95,6 @@
                     </DataGrid.RowDetailsTemplate>
                 </DataGrid>
             </Grid>
-        </ScrollViewer>
+       <!-- </ScrollViewer>-->
     </DockPanel>
 </Window>

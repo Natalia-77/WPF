@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,12 +20,11 @@ namespace CatShop
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        CatVM cat = new CatVM();
+    {        
+        private ObservableCollection<CatVM> cats = new ObservableCollection<CatVM>();
         public MainWindow()
         {
-            InitializeComponent();
-            cat.PropertyChanged += Cat_PropertyChanged;
+            InitializeComponent();           
         }
 
         private void Cat_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -33,8 +33,17 @@ namespace CatShop
         }
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
-        {
-            cat.Name = "Murrr";
+        {           
+
+            cats.Add(new CatVM()
+            {
+                Name = "Мурчик",
+                Birthday = new DateTime(2002, 7, 22),
+                Price =3200,
+                Description="Чорний окрас,пухнастий хвіст,зелені очі.Кусається,але не царапається...",
+                Image = "https://ichef.bbci.co.uk/news/800/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg"
+            });
+            dgSimple.ItemsSource = cats;
         }
     }
 }
