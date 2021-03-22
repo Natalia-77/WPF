@@ -63,7 +63,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Header="Price" Width="60" Binding="{Binding Price}"/>
+                        
                         <DataGridTextColumn Header="Description" ElementStyle="{StaticResource DataGridCellTextWrap}"  Binding="{Binding Description}">
                                                 
                       </DataGridTextColumn>
