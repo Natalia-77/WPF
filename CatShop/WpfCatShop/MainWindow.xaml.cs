@@ -4,6 +4,7 @@ using Domain;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,9 +60,10 @@ namespace WpfCatShop
                    Name = x.Name,
                    Birthday = x.Birth,
                    Description = x.Description,
-                   Gender=x.Gender
-               }).ToList();
-            _cats = new ObservableCollection<CatVM>(list);
+                   Gender=x.Gender,
+                   Image=x.Image
+               }).ToList();           
+            _cats = new ObservableCollection<CatVM>(list);            
             dgSimple.ItemsSource = _cats;
         }
     }
