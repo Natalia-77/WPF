@@ -1,4 +1,5 @@
 ﻿using CatShop.Domain;
+using CatShop.EFData;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -23,10 +24,12 @@ namespace WpfCatShop
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ObservableCollection<CatVM> cats = new ObservableCollection<CatVM>();
+        private EFContext _context = new EFContext();
+        private ObservableCollection<CatVM> _cats = new ObservableCollection<CatVM>();
         public MainWindow()
         {
             InitializeComponent();
+            DBSeeder.SeedData(_context);
         }
 
         private void Cat_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -37,7 +40,7 @@ namespace WpfCatShop
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
 
-            cats.Add(new CatVM()
+            _cats.Add(new CatVM()
             {
                 Name = "Мурчик",
                 Birthday = new DateTime(2002, 7, 22),
@@ -45,7 +48,7 @@ namespace WpfCatShop
                 Description = "Чорний окрас,пухнастий хвіст,зелені очі.Кусається,але не царапається...",
                 Image = "https://ichef.bbci.co.uk/news/800/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg"
             });
-            dgSimple.ItemsSource = cats;
+            dgSimple.ItemsSource = _cats;
         }
     }
 }
