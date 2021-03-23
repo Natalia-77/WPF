@@ -39,7 +39,7 @@ namespace WpfCatShop
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-
+            new AddNewCat().ShowDialog();
             //_cats.Add(new CatVM()
             //{
             //    Name = "Мурчик",
