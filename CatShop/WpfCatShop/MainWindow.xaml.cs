@@ -4,6 +4,7 @@ using Domain;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -25,6 +26,7 @@ namespace WpfCatShop
     /// </summary>
     public partial class MainWindow : Window
     {
+        public int _id { get; set; }
         private EFContext _context = new EFContext();
         private ObservableCollection<CatVM> _cats = new ObservableCollection<CatVM>();
         public MainWindow()
@@ -48,6 +50,8 @@ namespace WpfCatShop
             var list = _context.Cats
                .Select(x => new CatVM()
                {
+
+                   Id=x.Id.ToString(),
                    Name = x.Name,
                    Birthday = x.Birth,
                    Description = x.Description,
@@ -61,6 +65,25 @@ namespace WpfCatShop
         private void btnReload_Click(object sender, RoutedEventArgs e)
         {
             Window_Loaded(sender, e);
+        }
+
+        private void btnChangeUser_Click(object sender, RoutedEventArgs e)
+        {
+                      
+            if (dgSimple.SelectedItem != null)
+            {
+                if (dgSimple.SelectedItem is CatVM)
+                {
+                    var userView = dgSimple.SelectedItem as CatVM;                  
+                    int id =int.Parse( userView.Id);
+                    _id = id;
+                   
+                }
+               
+            }
+
+            EditCat edit = new EditCat(_id);
+            edit.ShowDialog();
         }
     }
 }

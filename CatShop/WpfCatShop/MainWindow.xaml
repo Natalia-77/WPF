@@ -25,7 +25,7 @@
             <Button Name="btnChangeUser"
                     Margin="0,15" 
                     Background="{StaticResource colorbackbutton}" 
-                    Content="Edit cat's info">
+                    Content="Edit cat's info" Click="btnChangeUser_Click">
                 <Button.Effect>
                     <DropShadowEffect Color="#0000FF"/>
                 </Button.Effect>
@@ -57,7 +57,7 @@
                 <ColumnDefinition  Width="670"/>
                 <ColumnDefinition MinWidth="300" />
             </Grid.ColumnDefinitions>
-            <DataGrid Name="dgSimple" AutoGenerateColumns="false" Margin="0,0,15,72.2" >
+            <DataGrid Name="dgSimple" AutoGenerateColumns="false" Margin="0,0,15,72.2" SelectedItem="{Binding SelectedItem}" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Cat's name" Width="80" Binding="{Binding Name}"/>
                     <DataGridTemplateColumn Header="Birthday">
