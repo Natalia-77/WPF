@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CatShop.EFData;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,14 +18,12 @@ namespace WpfCatShop
     /// </summary>
     public partial class AddNewCat : Window
     {
+        private EFContext _context = new EFContext();
         public AddNewCat()
         {
             InitializeComponent();
         }
 
-        private void TextBox_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+       
     }
 }
