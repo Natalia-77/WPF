@@ -37,6 +37,14 @@
                     <DropShadowEffect Color="#0000FF"/>
                 </Button.Effect>
             </Button>
+            <Button x:Name="btnReload"
+                    Margin="0,15"
+                    Background="{StaticResource colorbackbutton}"
+                    Content="Reload window" Click="btnReload_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="#0000FF"/>
+                </Button.Effect>
+            </Button>
         </StackPanel>
 
         <!-- <ScrollViewer HorizontalScrollBarVisibility="Visible">-->
