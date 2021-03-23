@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCatShop"
         mc:Ignorable="d"
-        Title="AddNewCat" Height="450" Width="800">
+        Title="AddNewCat" Height="400" Width="400">
     <Grid>
-        
+
+        <Label Content="Введіть дату:" HorizontalAlignment="Left" Margin="43,86,0,0" VerticalAlignment="Top" Width="142"/>
+        <DatePicker HorizontalAlignment="Left" Margin="222,86,0,0" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="103"/>
+        <Label Content="Форма додавання нового котика" HorizontalAlignment="Center" Margin="0,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.103,-5.431" Width="215"/>
+        <Label Content="Введіть кличку:" HorizontalAlignment="Left" Margin="43,134,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox HorizontalAlignment="Left" Margin="214,138,0,0" Text="11111" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Стать:" HorizontalAlignment="Left" Margin="43,174,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="214,178,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem>Котик</ComboBoxItem>
+            <ComboBoxItem>Киця</ComboBoxItem>
+        </ComboBox>
+
+
     </Grid>
 </Window>

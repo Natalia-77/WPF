@@ -21,5 +21,10 @@ namespace WpfCatShop
         {
             InitializeComponent();
         }
+
+        private void TextBox_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
