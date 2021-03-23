@@ -14,6 +14,7 @@ namespace Domain
         private DateTime _birth;
         //private int _price;
         private string _description;
+        private string _gender;
         private string _image;
 
 
@@ -57,6 +58,16 @@ namespace Domain
             }
         }
 
+        public string Gender
+        {
+            get { return _gender; }
+            set
+            {
+                _gender = value;
+                NotifyPropertyChanged("Gender");
+            }
+        }
+
         public string Image
         {
             get { return _image; }
@@ -66,6 +77,8 @@ namespace Domain
                 NotifyPropertyChanged("Image");
             }
         }
+
+
 
 
 

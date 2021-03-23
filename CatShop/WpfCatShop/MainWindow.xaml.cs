@@ -40,14 +40,28 @@ namespace WpfCatShop
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
 
-            _cats.Add(new CatVM()
-            {
-                Name = "Мурчик",
-                Birthday = new DateTime(2002, 7, 22),
-                //Price = 3200,
-                Description = "Чорний окрас,пухнастий хвіст,зелені очі.Кусається,але не царапається...",
-                Image = "https://ichef.bbci.co.uk/news/800/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg"
-            });
+            //_cats.Add(new CatVM()
+            //{
+            //    Name = "Мурчик",
+            //    Birthday = new DateTime(2002, 7, 22),
+            //    //Price = 3200,
+            //    Description = "Чорний окрас,пухнастий хвіст,зелені очі.Кусається,але не царапається...",
+            //    Image = "https://ichef.bbci.co.uk/news/800/cpsprodpb/14236/production/_104368428_gettyimages-543560762.jpg"
+            //});
+            //dgSimple.ItemsSource = _cats;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var list = _context.Cats
+               .Select(x => new CatVM()
+               {
+                   Name = x.Name,
+                   Birthday = x.Birth,
+                   Description = x.Description,
+                   Gender=x.Gender
+               }).ToList();
+            _cats = new ObservableCollection<CatVM>(list);
             dgSimple.ItemsSource = _cats;
         }
     }
