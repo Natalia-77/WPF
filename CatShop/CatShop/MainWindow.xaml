@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CatShop"
         mc:Ignorable="d"
-        Title="CatShop)))" Height="450" Width="800">
+        Title="CatShop)))" Height="450" Width="800" Loaded="Window_Loaded">
 
     <Window.Resources>
         <SolidColorBrush x:Key="colorbackbutton" Color="#FFEBCD"/>
@@ -63,8 +63,8 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        
-                        <DataGridTextColumn Header="Description" ElementStyle="{StaticResource DataGridCellTextWrap}"  Binding="{Binding Description}">
+                    <DataGridTextColumn Header="Gender" Width="60" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="Description" ElementStyle="{StaticResource DataGridCellTextWrap}"  Binding="{Binding Description}">
                                                 
                       </DataGridTextColumn>
                     </DataGrid.Columns>

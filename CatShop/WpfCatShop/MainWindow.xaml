@@ -59,7 +59,7 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                   
+                    <DataGridTextColumn Header="Gender" Width="60" Binding="{Binding Gender}"/>
                     <DataGridTextColumn Header="Description" ElementStyle="{StaticResource DataGridCellTextWrap}"  Binding="{Binding Description}">
 
                     </DataGridTextColumn>
