@@ -32,7 +32,7 @@
             </Button>
             <Button Name="btnDeleteUser" 
                     Background="{StaticResource colorbackbutton}"
-                    Content="Delete cat's info">
+                    Content="Delete cat's info" Click="btnDeleteUser_Click">
                 <Button.Effect>
                     <DropShadowEffect Color="#0000FF"/>
                 </Button.Effect>

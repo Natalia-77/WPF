@@ -85,6 +85,23 @@ namespace WpfCatShop
             EditCat edit = new EditCat(_id);
             edit.ShowDialog();
         }
+
+        private void btnDeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgSimple.SelectedItem != null)
+            {
+                if (dgSimple.SelectedItem is CatVM)
+                {
+                    var userView = dgSimple.SelectedItem as CatVM;
+                    int id = int.Parse(userView.Id);
+                    _id = id;
+                    var cat = _context.Cats.SingleOrDefault(c => c.Id == id);
+                    _context.Cats.Remove(cat);
+                    _context.SaveChanges();
+                }
+            }
+           
+        }
     }
 }
 
