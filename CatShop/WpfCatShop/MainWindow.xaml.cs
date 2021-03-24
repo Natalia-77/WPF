@@ -50,7 +50,6 @@ namespace WpfCatShop
             var list = _context.Cats
                .Select(x => new CatVM()
                {
-
                    Id=x.Id.ToString(),
                    Name = x.Name,
                    Birthday = x.Birth,
@@ -60,6 +59,7 @@ namespace WpfCatShop
                }).ToList();           
             _cats = new ObservableCollection<CatVM>(list);            
             dgSimple.ItemsSource = _cats;
+
         }
 
         private void btnReload_Click(object sender, RoutedEventArgs e)
@@ -76,10 +76,8 @@ namespace WpfCatShop
                 {
                     var userView = dgSimple.SelectedItem as CatVM;                  
                     int id =int.Parse( userView.Id);
-                    _id = id;
-                   
-                }
-               
+                    _id = id;                   
+                }               
             }
 
             EditCat edit = new EditCat(_id);
