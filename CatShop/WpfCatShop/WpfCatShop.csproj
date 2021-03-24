@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CatShop.Application\CatShop.Application.csproj" />
-    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

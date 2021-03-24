@@ -9,14 +9,23 @@ namespace Domain
 {
     public class CatVM : INotifyPropertyChanged
     {
-        public string Id;
+        private string _id;
         private string _name;
         private DateTime _birth;
-        //private int _price;
+        ///private int _price;
         private string _description;
         private string _gender;
         private string _image;
 
+        public string Id
+        {
+            get { return _id; }
+            set
+            {
+                _id = value;
+                NotifyPropertyChanged("Id");
+            }
+        }
 
         public string Name
         {

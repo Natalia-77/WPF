@@ -1,6 +1,6 @@
-﻿using CatShop.Domain;
+﻿using CatShop.Application;
+using CatShop.Domain;
 using CatShop.EFData;
-using Domain;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -57,7 +57,8 @@ namespace WpfCatShop
                    Gender=x.Gender,
                    Image=x.Image
                }).ToList();
-           
+
+          
             _cats = new ObservableCollection<CatVM>(list);            
             dgSimple.ItemsSource = _cats;
 

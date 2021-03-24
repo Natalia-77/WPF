@@ -5,7 +5,7 @@ namespace CatShop.Application
 {
     public class CatVM : INotifyPropertyChanged
     {
-        public string _id;
+        private string _id;
         private string _name;
         private DateTime _birth;
         //private int _price;
