@@ -64,12 +64,15 @@ namespace WpfCatShop
 
                 //заносимо в базу нове фото.
                 post.Image = fileSavePath;
+                _context.SaveChanges();
             }
-            if (tbdes != null)
+
+            if (!string.IsNullOrEmpty(tbdes.Text))
             {
                 post.Description = tbdes.Text;
+                _context.SaveChanges();
             }
-            _context.SaveChanges();            
+                    
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
