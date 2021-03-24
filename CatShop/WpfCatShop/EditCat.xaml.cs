@@ -65,8 +65,10 @@ namespace WpfCatShop
                 //заносимо в базу нове фото.
                 post.Image = fileSavePath;
             }
-
-            post.Description = tbdes.Text;
+            if (tbdes != null)
+            {
+                post.Description = tbdes.Text;
+            }
             _context.SaveChanges();            
         }
 

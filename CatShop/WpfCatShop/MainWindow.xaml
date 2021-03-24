@@ -86,7 +86,7 @@
                                     <RowDefinition Height="Auto" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="Інвентарний номер: " FontWeight="Bold" />
+                                <TextBlock Text="Номер:" FontWeight="Bold" />
                                 <TextBlock Text="{Binding Id}" Grid.Column="1" />
                                 <TextBlock Text="Кличка: " FontWeight="Bold" Grid.Row="1" />
                                 <TextBlock Text="{Binding Name}" Grid.Column="1" Grid.Row="1" />

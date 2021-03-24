@@ -50,13 +50,14 @@ namespace WpfCatShop
             var list = _context.Cats
                .Select(x => new CatVM()
                {
-                   Id=x.Id.ToString(),
+                   Id=x.Id.ToString(),                   
                    Name = x.Name,
                    Birthday = x.Birth,
                    Description = x.Description,
                    Gender=x.Gender,
                    Image=x.Image
-               }).ToList();           
+               }).ToList();
+           
             _cats = new ObservableCollection<CatVM>(list);            
             dgSimple.ItemsSource = _cats;
 
