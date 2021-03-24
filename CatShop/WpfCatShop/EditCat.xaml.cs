@@ -71,8 +71,7 @@ namespace WpfCatShop
             {
                 post.Description = tbdes.Text;
                 _context.SaveChanges();
-            }
-                    
+            }                    
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
