@@ -23,6 +23,18 @@ namespace CatShop.EFData
                     });
                 context.SaveChanges();
             }
+
+            if(context.CatPrices.Count()==0)
+            {
+                context.CatPrices.Add(new AppCatPrice
+                {
+                    Price=330.22M,
+                    DateCreate=new DateTime(2021,02,01),
+                    CatId=8
+
+                });
+                context.SaveChanges();
+            }
         }
     }
 }

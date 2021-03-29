@@ -7,6 +7,7 @@ namespace CatShop.EFData
     public class EFContext:DbContext
     {
         public DbSet<AppCat> Cats { get; set; }
+        public DbSet<AppCatPrice> CatPrices { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -8,7 +8,7 @@ namespace CatShop.Application
         private string _id;
         private string _name;
         private DateTime _birth;
-        //private int _price;
+        private int _price;
         private string _description;
         private string _gender;
         private string _image;
@@ -42,15 +42,15 @@ namespace CatShop.Application
             }
         }
 
-        //public int Price
-        //{
-        //    get { return _price; }
-        //    set
-        //    {
-        //        _price = value;
-        //        NotifyPropertyChanged("Price");
-        //    }
-        //}
+        public int Price
+        {
+            get { return _price; }
+            set
+            {
+                _price = value;
+                NotifyPropertyChanged("Price");
+            }
+        }
 
         public string Description
         {

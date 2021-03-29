@@ -77,8 +77,7 @@ namespace WpfCatShop
                 file_name = fileSavePath;
                
             }
-            _context.Cats
-               .Add(
+            var cat_info=
                new AppCat
                {
                    Name=tbname.Text,
@@ -86,7 +85,18 @@ namespace WpfCatShop
                    Description=tbdesc.Text,
                    Gender=cbitem.Text.ToString(),
                    Image=file_name
-               });
+               };
+            cat_info.AppCatPrices = new List<AppCatPrice>
+            {
+                new AppCatPrice
+                {
+                CatId = cat_info.Id,
+                DateCreate = DateTime.Now,
+                Price = decimal.Parse(tbprice.Text)
+                }
+            };
+
+            _context.Add(cat_info);
             _context.SaveChanges();
         }
 
