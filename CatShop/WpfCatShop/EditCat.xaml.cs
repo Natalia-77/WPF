@@ -1,22 +1,11 @@
 ﻿using CatShop.Application;
 using CatShop.EFData;
 using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WpfCatShop.Helper;
 
 namespace WpfCatShop
@@ -29,11 +18,15 @@ namespace WpfCatShop
         private EFContext _context = new EFContext();        
         public int _res { get; set; }
         private string file_select = string.Empty;
+        private readonly ViewModelCats cat = new ViewModelCats();
 
         public EditCat(int res)            
         {
             InitializeComponent();
+            cat.EnableValidation = true;
             _res = res;
+            DataContext = cat;
+            
         }       
 
         private void Button_Click(object sender, RoutedEventArgs e)

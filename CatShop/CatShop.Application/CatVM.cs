@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace CatShop.Application
 {
     public class CatVM : INotifyPropertyChanged
     {
+               
+      
+       
         private string _id;
         private string _name;
         private DateTime _birth;
@@ -12,14 +18,16 @@ namespace CatShop.Application
         private string _description;
         private string _gender;
         private string _image;
-
+      
+                     
+       
         public string Id
         {
             get { return _id; }
             set
             {
-                _id = value;
-                NotifyPropertyChanged("Id");
+                _id = value;               
+               NotifyPropertyChanged(nameof(Id));
             }
         }
         public string Name
@@ -27,8 +35,8 @@ namespace CatShop.Application
             get { return _name; }
             set
             {
-                _name = value;
-                NotifyPropertyChanged("Name");
+                _name = value;               
+                NotifyPropertyChanged(nameof(Name));
             }
         }
 
@@ -37,8 +45,8 @@ namespace CatShop.Application
             get { return _birth; }
             set
             {
-                _birth = value;
-                NotifyPropertyChanged("Birthday");
+                _birth = value;                
+                NotifyPropertyChanged(nameof(Birthday));
             }
         }
 
@@ -47,8 +55,8 @@ namespace CatShop.Application
             get { return _price; }
             set
             {
-                _price = value;
-                NotifyPropertyChanged("Price");
+                _price = value;               
+                NotifyPropertyChanged(nameof(Price));
             }
         }
 
@@ -57,8 +65,8 @@ namespace CatShop.Application
             get { return _description; }
             set
             {
-                _description = value;
-                NotifyPropertyChanged("Description");
+                _description = value;               
+                 NotifyPropertyChanged(nameof(Description));
             }
         }
 
@@ -67,8 +75,8 @@ namespace CatShop.Application
             get { return _gender; }
             set
             {
-                _gender = value;
-                NotifyPropertyChanged("Gender");
+                _gender = value;                
+                NotifyPropertyChanged(nameof(Gender));
             }
         }
 
@@ -77,19 +85,26 @@ namespace CatShop.Application
             get { return _image; }
             set
             {
-                _image = value;
-                NotifyPropertyChanged("Image");
+                _image = value;               
+                NotifyPropertyChanged(nameof(Image));
             }
         }
-
-
-
-
+              
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         public void NotifyPropertyChanged(string property_name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property_name));
         }
+
+
+
+        
+
+
+        
+
     }
 }

@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CatShop.Domain\CatShop.Domain.csproj" />
     <ProjectReference Include="..\CatShop.EFData\CatShop.EFData.csproj" />
   </ItemGroup>

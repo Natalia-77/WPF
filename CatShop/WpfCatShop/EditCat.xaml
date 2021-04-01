@@ -3,31 +3,36 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfCatShop"
+        xmlns:local="clr-namespace:WpfCatShop" xmlns:application="clr-namespace:CatShop.Application;assembly=CatShop.Application"
         mc:Ignorable="d"
         Title="EditCat" Height="450" Width="400">
+    <Window.DataContext>
+        <application:ViewModelCats/>
+    </Window.DataContext>
+    
     <Grid>
         <Label Content="Опис:"                
                HorizontalAlignment="Left" 
-               Margin="21,65,0,0"
+               Margin="21,217,0,0"
                VerticalAlignment="Top"  
                FontSize="15"
                Width="70"/>
         <TextBox x:Name="tbdes"               
                  HorizontalAlignment="Left"                   
-                 Margin="213,54,0,0" 
+                 Margin="200,0,0,0" 
                  Background="#D8BFD8"
                  Foreground="#00008B"                
                    TextWrapping="Wrap"
-                   VerticalAlignment="Top"                    
-                   Height="52"
+                   VerticalAlignment="Center"                    
+                   Height="59"
                    Width="136"
                    />
         <Button Content="Зберегти зміни"
                 HorizontalAlignment="Left"
-                Margin="10,217,0,0"
+                Margin="29,368,0,0"
                 VerticalAlignment="Top"
-                Width="130" Height="43" Click="Button_Click"/>
+                Width="102" Height="38" 
+                Click="Button_Click"/>
         <Label Content="Форма редагування "
                FontSize="15"
                HorizontalAlignment="Center"
@@ -36,13 +41,39 @@
         <Label Content="Вибрати нове фото:"
                FontSize="15"
                HorizontalAlignment="Left"
-               Margin="21,139,0,0"
+               Margin="21,283,0,0"
                VerticalAlignment="Top"/>
         <Button Content="Вибрати фото" 
                 HorizontalAlignment="Left"
-                Margin="213,139,0,0"
+                Margin="200,277,0,0"
                 VerticalAlignment="Top"
-                Width="101" Height="41" Click="Button_Click_1"/>
+                Width="101" Height="41"
+                Click="Button_Click_1"/>
+        <Label Content="Кличка кота"
+               HorizontalAlignment="Left"
+               FontSize="15"
+               Margin="21,135,0,0"
+               VerticalAlignment="Top"
+               Width="110"/>
+        <TextBox x:Name="tbnewname"
+                 HorizontalAlignment="Left"
+                   Margin="201,137,0,0"
+                   Text="{Binding Name, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" 
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Top"
+                   Height="28" Width="135">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+            </TextBox>
     </Grid>
 
 </Window>

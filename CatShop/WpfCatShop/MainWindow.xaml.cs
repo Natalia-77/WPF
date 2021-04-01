@@ -21,6 +21,7 @@ namespace WpfCatShop
         {
             InitializeComponent();
             DBSeeder.SeedData(_context);
+            //this.DataContext = new CatVM();
         }
 
         private void Cat_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -30,7 +31,7 @@ namespace WpfCatShop
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            new AddNewCat().ShowDialog();            
+            new AddNewCat(_cats).ShowDialog();            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

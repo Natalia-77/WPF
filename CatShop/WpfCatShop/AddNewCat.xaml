@@ -3,10 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfCatShop" xmlns:application="clr-namespace:CatShop.Application;assembly=CatShop.Application" d:DataContext="{d:DesignInstance Type=application:CatVM}"
+        xmlns:local="clr-namespace:WpfCatShop" xmlns:application="clr-namespace:CatShop.Application;assembly=CatShop.Application" d:DataContext="{d:DesignInstance Type=application:ViewModelCats}"
         mc:Ignorable="d"
-        Title="AddNewCat" Height="400" Width="400">
+        Title="AddNewCat" Height="400" Width="600">
+    <Window.DataContext>
+        <application:ViewModelCats/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="TextBox">
+
+            <Style.Triggers>
+
+                <Trigger Property="Validation.HasError" Value="true">
+                    <Setter Property="ToolTip"
+                            Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                        Path=(Validation.Errors)[0].ErrorContent}" />
+
+                </Trigger>
+
+
+            </Style.Triggers>
+
+
+        </Style>
+    </Window.Resources>
+
     <Grid>
+
 
         <Label Content="Введіть дату:"
                HorizontalAlignment="Left"
@@ -14,17 +37,29 @@
                VerticalAlignment="Top" 
                Width="142"/>
         <DatePicker x:Name="bdcat"
-                    SelectedDate="{Binding Birthday}"
+                    SelectedDate="{Binding Birthday,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"
                     HorizontalAlignment="Left"
                     Margin="222,51,0,0" 
                     VerticalAlignment="Top"
                     Height="26" 
-                    Width="104" RenderTransformOrigin="0.462,-0.937"/>
+                    Width="104">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- ERROR INFO -->
+                        <AdornedElementPlaceholder x:Name="DatePicker"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </DatePicker>
         <Label Content="Форма додавання нового котика"
                HorizontalAlignment="Center"
                Margin="0,20,0,0"
-               VerticalAlignment="Top"
-               RenderTransformOrigin="1.103,-5.431"
+               VerticalAlignment="Top"              
                Width="216"/>
         <Label Content="Введіть кличку:" 
                HorizontalAlignment="Left"
@@ -34,10 +69,24 @@
         <TextBox x:Name="tbname"
                  HorizontalAlignment="Left"
                  Margin="214,96,0,0"
-                 Text="11111" 
+                 Text="{Binding Name, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"   
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"/>
+                 Width="120">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+
         <Label Content="Стать:"
                HorizontalAlignment="Left" 
                Margin="43,139,0,0"
@@ -52,7 +101,7 @@
         <TextBox x:Name="tbdesc"                   
             HorizontalAlignment="Left"
                    Margin="214,215,0,0"
-                   Text="2"
+                   Text=""
                    TextWrapping="Wrap"
                    VerticalAlignment="Top"
                    Height="41"
@@ -74,14 +123,37 @@
                Margin="43,0,0,0"
                VerticalAlignment="Center"
                Width="73"/>
+
         <TextBox x:Name="tbprice"
-            HorizontalAlignment="Left"
+                 HorizontalAlignment="Left"
                  Margin="214,179,0,0"
-                 Text=""
+                 Text="{Binding Price, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"               
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
-                 Width="120"/>
+                 Width="120">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- ERROR INFO -->
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Button Content="Check valid" 
+                HorizontalAlignment="Left"
+                Margin="55,322,0,0"
+                VerticalAlignment="Top"
+                Width="80" Click="Button_Click_2"/>
 
+        <!--<TextBlock HorizontalAlignment="Left"
+                 Margin="133,179,0,0"
+                 Text="{Binding ErrorCollection[Price],UpdateSourceTrigger=PropertyChanged}"                 
+        TextWrapping="Wrap" VerticalAlignment="Top" Width="76"/>-->
 
 
 
