@@ -1,6 +1,8 @@
 ﻿using CatShop.Application;
 using CatShop.EFData;
+using FluentValidation;
 using Microsoft.Win32;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -19,6 +21,7 @@ namespace WpfCatShop
         public int _res { get; set; }
         private string file_select = string.Empty;
         private readonly ViewModelCats cat = new ViewModelCats();
+        private readonly CatValidator _catvalid = new CatValidator();
 
         public EditCat(int res)            
         {
@@ -31,9 +34,9 @@ namespace WpfCatShop
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {                
-            var post = _context.Cats
+            var cat_item = _context.Cats
               .SingleOrDefault(p => p.Id ==_res);
-            //MessageBox.Show($"{post.Name}");
+           
 
             //якщо обрали файл з фото кота.
             if (!string.IsNullOrEmpty(file_select))
@@ -56,15 +59,28 @@ namespace WpfCatShop
                 bmp.Save(fileSavePath, ImageFormat.Jpeg);
 
                 //заносимо в базу нове фото.
-                post.Image = fileSavePath;
+                cat_item.Image = fileSavePath;
                 _context.SaveChanges();
             }
+          
+            
+                if (!string.IsNullOrEmpty(tbnewname.Text))
+                {          
+                   if (!cat.Error.Equals("Недопустимі цифри і латиниця!"))
+                   {
+                     MessageBox.Show("true");
+                    cat_item.Name = tbnewname.Text;
+                    _context.SaveChanges();
+                   }
 
-            if (!string.IsNullOrEmpty(tbdes.Text))
-            {
-                post.Description = tbdes.Text;
+                }
+            
+
+                if (!string.IsNullOrEmpty(tbdes.Text))
+                {
+                cat_item.Description = tbdes.Text;
                 _context.SaveChanges();
-            }                    
+                }                    
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

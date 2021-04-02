@@ -44,6 +44,7 @@ namespace WpfCatShop
                    Birthday = x.Birth,
                    Description = x.Description,
                    Gender=x.Gender,
+                   Price=x.AppCatPrices.OrderByDescending(x=>x.DateCreate).FirstOrDefault().Price,
                    Image=x.Image
                }).ToList();
 

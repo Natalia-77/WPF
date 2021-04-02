@@ -14,7 +14,7 @@ namespace CatShop.Application
         private string _id;
         private string _name;
         private DateTime _birth;
-        private int _price;
+        private decimal _price;
         private string _description;
         private string _gender;
         private string _image;
@@ -50,7 +50,7 @@ namespace CatShop.Application
             }
         }
 
-        public int Price
+        public decimal Price
         {
             get { return _price; }
             set

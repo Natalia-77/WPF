@@ -10,11 +10,11 @@ namespace CatShop.Application
         {
             RuleFor(cat => cat.Name)
                 .Must(BeAValidName)                
-                .WithMessage("Could not be empty!!");       
+                .WithMessage("Недопустимі цифри і латиниця!");       
                      
             RuleFor(cat=>cat.Price)
                 .Must(BeValidPrice)
-                .WithMessage("Could not be zero");
+                .WithMessage("Повинно бути більше нуля!");
 
             RuleFor(cat => cat.Birthday)
                 .Must(BeValidDate)

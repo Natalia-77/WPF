@@ -68,8 +68,10 @@
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTextColumn Header="Gender" Width="60" Binding="{Binding Gender}"/>
-                    <DataGridTextColumn Header="Description" ElementStyle="{StaticResource DataGridCellTextWrap}"  Binding="{Binding Description}">
-
+                    <DataGridTextColumn Header="Price" Width="70" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Description" ElementStyle="{StaticResource DataGridCellTextWrap}" 
+                                        Binding="{Binding Description}">
+                       
                     </DataGridTextColumn>
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>

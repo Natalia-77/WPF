@@ -5,31 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCatShop" xmlns:application="clr-namespace:CatShop.Application;assembly=CatShop.Application"
         mc:Ignorable="d"
-        Title="EditCat" Height="450" Width="400">
+        Title="EditCat" Height="550" Width="600">
     <Window.DataContext>
         <application:ViewModelCats/>
     </Window.DataContext>
-    
+
     <Grid>
         <Label Content="Опис:"                
                HorizontalAlignment="Left" 
-               Margin="21,217,0,0"
+               Margin="30,319,0,0"
                VerticalAlignment="Top"  
                FontSize="15"
-               Width="70"/>
+               Width="70" RenderTransformOrigin="0.05,0.646"/>
         <TextBox x:Name="tbdes"               
                  HorizontalAlignment="Left"                   
-                 Margin="200,0,0,0" 
+                 Margin="222,311,0,0" 
                  Background="#D8BFD8"
                  Foreground="#00008B"                
                    TextWrapping="Wrap"
-                   VerticalAlignment="Center"                    
-                   Height="59"
-                   Width="136"
+                   VerticalAlignment="Top"                    
+                   Height="45"
+                   Width="132"
                    />
         <Button Content="Зберегти зміни"
                 HorizontalAlignment="Left"
-                Margin="29,368,0,0"
+                Margin="43,451,0,0"
                 VerticalAlignment="Top"
                 Width="102" Height="38" 
                 Click="Button_Click"/>
@@ -41,23 +41,23 @@
         <Label Content="Вибрати нове фото:"
                FontSize="15"
                HorizontalAlignment="Left"
-               Margin="21,283,0,0"
+               Margin="36,383,0,0"
                VerticalAlignment="Top"/>
         <Button Content="Вибрати фото" 
                 HorizontalAlignment="Left"
-                Margin="200,277,0,0"
+                Margin="243,383,0,0"
                 VerticalAlignment="Top"
-                Width="101" Height="41"
+                Width="93" Height="30"
                 Click="Button_Click_1"/>
         <Label Content="Кличка кота"
                HorizontalAlignment="Left"
                FontSize="15"
-               Margin="21,135,0,0"
+               Margin="39,85,0,0"
                VerticalAlignment="Top"
                Width="110"/>
         <TextBox x:Name="tbnewname"
                  HorizontalAlignment="Left"
-                   Margin="201,137,0,0"
+                   Margin="225,87,0,0"
                    Text="{Binding Name, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" 
                    TextWrapping="Wrap"
                    VerticalAlignment="Top"
@@ -65,6 +65,38 @@
             <Validation.ErrorTemplate>
                 <ControlTemplate>
                     <StackPanel Orientation="Horizontal">
+                        <AdornedElementPlaceholder x:Name="textBox"/>
+                        <TextBlock Margin="10,2,10,20"
+                                   Text="{Binding [0].ErrorContent}"
+                                   Foreground="Red"
+                                   FontSize="12"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Validation.ErrorTemplate>
+        </TextBox>
+        <Label Content="Дата народження"
+               HorizontalAlignment="Left" 
+               FontSize="15"
+               Margin="30,172,0,0"
+               VerticalAlignment="Top" 
+               Width="159"/>
+        <DatePicker HorizontalAlignment="Left" Margin="225,172,0,0" VerticalAlignment="Top" Height="26" Width="132"/>
+        <Label Content="Ціна"
+               HorizontalAlignment="Left"
+               FontSize="15"
+               Margin="30,246,0,0"
+               VerticalAlignment="Top"
+               Width="103"/>
+        <TextBox HorizontalAlignment="Left"
+                 Margin="225,246,0,0" 
+                 Text="{Binding Price, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" 
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="129" Height="30">
+            <Validation.ErrorTemplate>
+                <ControlTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <!-- ERROR INFO -->
                         <AdornedElementPlaceholder x:Name="textBox"/>
                         <TextBlock Margin="10,2,10,20"
                                    Text="{Binding [0].ErrorContent}"
