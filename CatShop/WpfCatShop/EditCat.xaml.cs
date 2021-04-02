@@ -65,24 +65,24 @@ namespace WpfCatShop
                 cat_item.Image = fileSavePath;
                 _context.SaveChanges();
             }
-          
-            
-                if (!string.IsNullOrEmpty(tbnewname.Text))
-                {          
-                   if (!cat.Error.Equals("Недопустимі цифри і латиниця!"))
-                   {
-                     MessageBox.Show("true");
+
+
+            if (!string.IsNullOrEmpty(tbnewname.Text))
+            {
+                if (!cat.Error.Equals("Недопустимі цифри і латиниця!"))
+                {
+                     //MessageBox.Show("true");
                     cat_item.Name = tbnewname.Text;
                     _context.SaveChanges();
-                   }
-
                 }
+
+            }
 
             if (!string.IsNullOrEmpty(tbprice.Text))
             {
                 if (!cat.Error.Equals("Повинно бути більше нуля!"))
                 {
-                    MessageBox.Show("+++++");
+                    //MessageBox.Show("+++++");
                     cat_item.AppCatPrices = new List<AppCatPrice>
                     {
                       new AppCatPrice
@@ -97,13 +97,22 @@ namespace WpfCatShop
                 }
 
             }
+            //dpdatebirth
+            if (dpdatebirth.SelectedDate != null)
+            {
+                if (!cat.Error.Equals("Некоректна дата!"))
+                {
+                    cat_item.Birth = (DateTime)dpdatebirth.SelectedDate;
+                    _context.SaveChanges();
+                }
+            }
 
 
             if (!string.IsNullOrEmpty(tbdes.Text))
-                {
+            {
                 cat_item.Description = tbdes.Text;
                 _context.SaveChanges();
-                }                    
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

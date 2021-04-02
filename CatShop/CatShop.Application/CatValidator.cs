@@ -18,7 +18,7 @@ namespace CatShop.Application
 
             RuleFor(cat => cat.Birthday)
                 .Must(BeValidDate)
-                .WithMessage("Invalad data");
+                .WithMessage("Некоректна дата!");
 
 
         }
