@@ -1,7 +1,10 @@
 ﻿using CatShop.Application;
+using CatShop.Domain;
 using CatShop.EFData;
 using FluentValidation;
 using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -74,9 +77,29 @@ namespace WpfCatShop
                    }
 
                 }
-            
 
-                if (!string.IsNullOrEmpty(tbdes.Text))
+            if (!string.IsNullOrEmpty(tbprice.Text))
+            {
+                if (!cat.Error.Equals("Повинно бути більше нуля!"))
+                {
+                    MessageBox.Show("+++++");
+                    cat_item.AppCatPrices = new List<AppCatPrice>
+                    {
+                      new AppCatPrice
+                      {
+                          CatId=cat_item.Id,
+                          DateCreate=DateTime.Now,
+                          Price=decimal.Parse(tbprice.Text)
+                      }
+
+                    };
+                    _context.SaveChanges();
+                }
+
+            }
+
+
+            if (!string.IsNullOrEmpty(tbdes.Text))
                 {
                 cat_item.Description = tbdes.Text;
                 _context.SaveChanges();

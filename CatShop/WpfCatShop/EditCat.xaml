@@ -87,7 +87,8 @@
                Margin="30,246,0,0"
                VerticalAlignment="Top"
                Width="103"/>
-        <TextBox HorizontalAlignment="Left"
+        <TextBox Name="tbprice"
+            HorizontalAlignment="Left"
                  Margin="225,246,0,0" 
                  Text="{Binding Price, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" 
                  TextWrapping="Wrap"
