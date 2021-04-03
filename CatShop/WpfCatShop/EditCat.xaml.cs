@@ -24,19 +24,22 @@ namespace WpfCatShop
         public int _res { get; set; }
         private string file_select = string.Empty;
         private readonly ViewModelCats cat = new ViewModelCats();
-        private readonly CatValidator _catvalid = new CatValidator();
+        //private readonly CatValidator _catvalid = new CatValidator();
 
         public EditCat(int res)            
         {
             InitializeComponent();
-            cat.EnableValidation = true;
+            cat.EnableValidation = true ;
             _res = res;
             DataContext = cat;
             
-        }       
+        }
+        static readonly string[] ValidationErrors = { "Name", "Price", "Birthday" };
 
+        
         private void Button_Click(object sender, RoutedEventArgs e)
-        {                
+        {
+           
             var cat_item = _context.Cats
               .SingleOrDefault(p => p.Id ==_res);
            
@@ -68,36 +71,39 @@ namespace WpfCatShop
 
 
             if (!string.IsNullOrEmpty(tbnewname.Text))
-            {
-                if (!cat.Error.Equals("Недопустимі цифри і латиниця!"))
+            {                
+             
+               if(!cat.Error.Equals("Недопустимі цифри і латиниця!"))
                 {
-                     //MessageBox.Show("true");
+                    MessageBox.Show("true");
                     cat_item.Name = tbnewname.Text;
                     _context.SaveChanges();
                 }
 
             }
 
-            if (!string.IsNullOrEmpty(tbprice.Text))
+            if(decimal.Parse(tbprice.Text)>0)
             {
+
+                
                 if (!cat.Error.Equals("Повинно бути більше нуля!"))
                 {
-                    //MessageBox.Show("+++++");
                     cat_item.AppCatPrices = new List<AppCatPrice>
                     {
-                      new AppCatPrice
-                      {
-                          CatId=cat_item.Id,
-                          DateCreate=DateTime.Now,
-                          Price=decimal.Parse(tbprice.Text)
-                      }
+                        new AppCatPrice
+                        {
+                            CatId=cat_item.Id,
+                            DateCreate=DateTime.Now,
+                            Price=decimal.Parse(tbprice.Text)
+                        }
 
                     };
                     _context.SaveChanges();
                 }
 
             }
-            //dpdatebirth
+
+
             if (dpdatebirth.SelectedDate != null)
             {
                 if (!cat.Error.Equals("Некоректна дата!"))
@@ -105,6 +111,10 @@ namespace WpfCatShop
                     cat_item.Birth = (DateTime)dpdatebirth.SelectedDate;
                     _context.SaveChanges();
                 }
+            }
+            else
+            {
+                MessageBox.Show("NoData");
             }
 
 

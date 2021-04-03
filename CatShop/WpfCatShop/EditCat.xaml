@@ -11,27 +11,39 @@
     </Window.DataContext>
 
     <Grid>
+
+        <Grid.Resources>
+            <Style TargetType="Button" x:Key="FirstOne" >                
+                <Setter Property="Background" Value="#AFEEEE"/>
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="Foreground" Value="DarkBlue" />
+                <Setter Property="FontFamily" Value="Arial"/>              
+            </Style>
+            <Style TargetType="TextBox" x:Key="SecondBox">
+                <Setter Property="Background" Value="#FFC0CB"/>
+            </Style>           
+        </Grid.Resources>        
         <Label Content="Опис:"                
                HorizontalAlignment="Left" 
                Margin="30,319,0,0"
                VerticalAlignment="Top"  
                FontSize="15"
                Width="70" RenderTransformOrigin="0.05,0.646"/>
+
         <TextBox x:Name="tbdes"               
                  HorizontalAlignment="Left"                   
-                 Margin="222,311,0,0" 
-                 Background="#D8BFD8"
-                 Foreground="#00008B"                
-                   TextWrapping="Wrap"
-                   VerticalAlignment="Top"                    
-                   Height="45"
-                   Width="132"
-                   />
+                 Margin="222,311,0,0"                  
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"   
+                 Style="{StaticResource SecondBox}"
+                 Height="45"
+                 Width="132" />
         <Button Content="Зберегти зміни"
                 HorizontalAlignment="Left"
                 Margin="43,451,0,0"
                 VerticalAlignment="Top"
                 Width="102" Height="38" 
+                Style="{StaticResource FirstOne}"
                 Click="Button_Click"/>
         <Label Content="Форма редагування "
                FontSize="15"
@@ -47,6 +59,7 @@
                 HorizontalAlignment="Left"
                 Margin="243,383,0,0"
                 VerticalAlignment="Top"
+                 Style="{StaticResource FirstOne}"
                 Width="93" Height="30"
                 Click="Button_Click_1"/>
         <Label Content="Кличка кота"
@@ -80,7 +93,7 @@
                Margin="30,172,0,0"
                VerticalAlignment="Top" 
                Width="159"/>
-        <DatePicker Name="dpdatebirth"
+        <DatePicker x:Name="dpdatebirth"
                     SelectedDate="{Binding Birthday,ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}"
                     HorizontalAlignment="Left" 
                     Margin="225,172,0,0" 
@@ -99,17 +112,17 @@
                     </StackPanel>
                 </ControlTemplate>
             </Validation.ErrorTemplate>
-            </DatePicker>
-            <Label Content="Ціна"
+        </DatePicker>
+        <Label Content="Ціна"
                HorizontalAlignment="Left"
                FontSize="15"
                Margin="30,246,0,0"
                VerticalAlignment="Top"
                Width="103"/>
-        <TextBox Name="tbprice"
+        <TextBox x:Name="tbprice"
             HorizontalAlignment="Left"
                  Margin="225,246,0,0" 
-                 Text="{Binding Price, ValidatesOnDataErrors=True,UpdateSourceTrigger=PropertyChanged}" 
+                 Text="{Binding Price,ValidatesOnDataErrors=True}" 
                  TextWrapping="Wrap"
                  VerticalAlignment="Top"
                  Width="129" Height="30">
@@ -125,7 +138,7 @@
                     </StackPanel>
                 </ControlTemplate>
             </Validation.ErrorTemplate>
-            </TextBox>
+        </TextBox>
     </Grid>
 
 </Window>

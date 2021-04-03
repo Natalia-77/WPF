@@ -36,7 +36,7 @@ namespace CatShop.Application
 
         private static bool BeValidPrice(decimal price)
         {
-            if (price>0)
+            if (price>10)
             {
                 var regex = new Regex(@"\d+(\.\d{1,2})?");
                 return regex.IsMatch(price.ToString());
