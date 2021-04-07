@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CatShop.Application\CatShop.Application.csproj" />
+    <ProjectReference Include="..\CatShop.Infrastructure\CatShop.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

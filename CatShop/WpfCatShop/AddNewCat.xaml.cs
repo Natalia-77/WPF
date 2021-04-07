@@ -64,6 +64,7 @@ namespace WpfCatShop
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             cat.EnableValidation = true;
+
             if (string.IsNullOrEmpty(cat.Error))
             {
                 if (!string.IsNullOrEmpty(file_selected))

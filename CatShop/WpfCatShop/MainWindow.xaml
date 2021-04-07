@@ -38,13 +38,37 @@
                 </Button.Effect>
             </Button>
             <Button x:Name="btnReload"
-                    Margin="0,15"
+                    Margin="0,15,0,40"
                     Background="{StaticResource colorbackbutton}"
                     Content="Reload window" Click="btnReload_Click">
                 <Button.Effect>
                     <DropShadowEffect Color="#0000FF"/>
                 </Button.Effect>
             </Button>
+            <Button Name="btncatsnew" 
+                    Background="{StaticResource colorbackbutton}"
+                    Content="Start cats!" Click="btncatsnew_Click">
+                <Button.Effect>
+                    <DropShadowEffect Color="#00FF00"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btncancel" 
+                    Background="{StaticResource colorbackbutton}"
+                    Content="Stop " 
+                    Margin="0,15,0,10" Click="btncancel_Click" >
+                <Button.Effect>
+                    <DropShadowEffect Color="#FF0000"/>
+                </Button.Effect>
+            </Button>
+            <Button Name="btnpause" 
+                    Background="{StaticResource colorbackbutton}"
+                    Content="Pause" 
+                    Margin="0,10" Click="btnpause_Click"  >
+                <Button.Effect>
+                    <DropShadowEffect Color="#8B008B"/>
+                </Button.Effect>
+            </Button>
+
         </StackPanel>
 
         <!-- <ScrollViewer HorizontalScrollBarVisibility="Visible">-->
@@ -71,7 +95,7 @@
                     <DataGridTextColumn Header="Price" Width="70" Binding="{Binding Price}"/>
                     <DataGridTextColumn Header="Description" ElementStyle="{StaticResource DataGridCellTextWrap}" 
                                         Binding="{Binding Description}">
-                       
+
                     </DataGridTextColumn>
                 </DataGrid.Columns>
                 <DataGrid.RowDetailsTemplate>
@@ -100,6 +124,17 @@
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>
             </DataGrid>
+            <ProgressBar Name="pbsimple"
+                HorizontalAlignment="Left" 
+                Height="29" Margin="19,361,0,0"
+                VerticalAlignment="Top"
+                Width="605"/>
+            <TextBlock Name="tbstatus"
+                   Background="#FF0000"
+                   HorizontalAlignment="Left" 
+                   Margin="272,333,0,0" VerticalAlignment="Top"
+                   RenderTransformOrigin="1,0.649"
+                   />
         </Grid>
         <!-- </ScrollViewer>-->
     </DockPanel>
