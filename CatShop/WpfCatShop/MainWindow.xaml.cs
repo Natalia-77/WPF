@@ -101,6 +101,7 @@ namespace WpfCatShop
             }
            
         }
+        #region Thread BackgroundWorker
         /// <summary>
         /// Add cats when you push a button.
         /// </summary>
@@ -109,15 +110,10 @@ namespace WpfCatShop
 
         private void btncatsnew_Click(object sender, RoutedEventArgs e)
         {
-            ////Debug.WriteLine("Thread id: {0}", Thread.CurrentThread.ManagedThreadId);
-            ////btnAddRange.IsEnabled = false;
-            ////ShowMessage();
-            ///
-            //======
-            //Thread thread = new Thread(Adde);
-            //thread.Start();
-            //=====
-
+           
+            btncatsnew.IsEnabled = false;
+            btncancel.IsEnabled = true;
+            btnpause.IsEnabled = true;
             pbsimple.Value = 0;
             worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
@@ -175,7 +171,10 @@ namespace WpfCatShop
                
                 tbstatus.Text= "Cats added";
             }
-           
+            btncatsnew.IsEnabled = true;
+            btncancel.IsEnabled = false;
+            btnpause.IsEnabled = false;
+
         }
 
         private void btncancel_Click(object sender, RoutedEventArgs e)
@@ -224,29 +223,8 @@ namespace WpfCatShop
             _busy.Reset();
             
         }
+        #endregion
 
-
-        //private void Adde()
-        //{
-        //    Dispatcher.Invoke(new Action(() =>
-        //    {
-        //        btncatsnew.IsEnabled = false;
-        //    }));
-        //    ICatService catService = new CatService();
-        //    catService.AddNewCatItem += UpdateUIAsync;
-        //    catService.AddCat(5);
-
-        //}
-
-        //void UpdateUIAsync(int i)
-        //{
-        //    Dispatcher.Invoke(new Action(() =>
-        //    {
-        //       btncatsnew.Content = $"{i}";
-        //        Debug.WriteLine("Thread id: {0}", Thread.CurrentThread.ManagedThreadId);
-        //    }));
-
-        //}
     }
 }
 
