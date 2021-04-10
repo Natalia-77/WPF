@@ -22,22 +22,22 @@ namespace AsyncAwait
                 .ContinueWith(task => MultiplyNegative1(task));
             Console.WriteLine("Methods result: " + result);
         }
-
+        //
         static int GetSum(int count)
         {
-            // викликається першим.
-            int sum = 0;
+            // викликається першим.Повертає значення,що дорівнює номеру ітерації,помноженому на 2.
+            int res = 0;
             for (int z = 1; z < count; z++)
             {
                 
-                sum = z*2;
+                res = z*2;
             }
-            return sum;
+            return res;
         }
 
         static int MultiplyNegative1(Task<int> task)
         {
-            // викликається другим і поаертає значення номножене на мінус 1.
+            // викликається другим і повертає значення номножене на мінус 1.
             return task.Result * -1;
         }
     }
