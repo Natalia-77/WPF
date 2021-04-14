@@ -63,12 +63,20 @@
             <Button Name="btnpause" 
                     Background="{StaticResource colorbackbutton}"
                     Content="Pause" 
-                    Margin="0,10" Click="btnpause_Click"  >
+                    Margin="0,10" Click="btnpause_Click">
                 <Button.Effect>
                     <DropShadowEffect Color="#8B008B"/>
                 </Button.Effect>
             </Button>
-
+            <TextBlock Name="tbtime"                       
+                       Background="{StaticResource colorbackbutton}"
+                       TextWrapping="Wrap"                       
+                       Margin="0,90,0,10"
+                       Height="20">
+                <TextBlock.Effect>
+                           <DropShadowEffect Color="Aqua"/>
+                       </TextBlock.Effect>
+                </TextBlock>
         </StackPanel>
 
         <!-- <ScrollViewer HorizontalScrollBarVisibility="Visible">-->
@@ -130,11 +138,11 @@
                 VerticalAlignment="Top"
                 Width="605"/>
             <TextBlock Name="tbstatus"
-                   Background="#FF0000"
-                   HorizontalAlignment="Left" 
-                   Margin="272,333,0,0" VerticalAlignment="Top"
-                   RenderTransformOrigin="1,0.649"
-                   />
+                       Foreground="#00FF00"
+                       Background="#0000FF"
+                       HorizontalAlignment="Left" 
+                       Margin="272,333,0,0" VerticalAlignment="Top"
+                       RenderTransformOrigin="1,0.649" />
         </Grid>
         <!-- </ScrollViewer>-->
     </DockPanel>

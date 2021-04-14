@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CatShop.EFData
 {
@@ -35,6 +36,12 @@ namespace CatShop.EFData
                 });
                 context.SaveChanges();
             }
+        }
+
+        public static Task SeedDataAsync(EFContext context)
+        {
+            return Task.Run(() => SeedData(context));
+
         }
     }
 }
