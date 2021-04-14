@@ -141,6 +141,78 @@ namespace WpfCatShop
             }
            
         }
+
+        #region Async/await
+
+        //Відображення зміни даних в UI.
+        void UpdateUI(int i)
+        {
+            Dispatcher.Invoke(new Action(() =>
+            {
+                btncatsnew.Content = $"{i}";
+
+                //в прогрессбарі відображається кількість елементів,відповідно до їх додавання.
+                pbsimple.Value = i;
+
+            }));
+
+        }
+
+        //обробник кнопки додавання даних в базу.
+        public async void btncatsnew_Click(object sender, RoutedEventArgs e)
+        {
+            //виводимо дані про поточний потік.
+            Debug.WriteLine("Thread id: {0}", Thread.CurrentThread.ManagedThreadId);
+
+            //після натискання кнопка додавання перестає бути активною.
+            btncatsnew.IsEnabled = false;
+            _busy.Set();
+
+            //кількість котів для додавання.
+            int count = 3;
+            pbsimple.Maximum = count;
+            await _catService.InsertCatsAsync(count, _busy);
+
+        }
+
+
+        //обробник кнопки паузи рід час задачі з додавання нових даних в базу.
+        private void btnpause_Click(object sender, RoutedEventArgs e)
+        {
+            //якщо кнопка пауза не натиснута і ми її натискаємо.
+            if (btnpause.Content.ToString() == "Pause")
+            {
+                //блокування виконання.
+                _busy.Reset();
+                btnpause.Content = "Resume";
+            }
+            //в іншому випадку,кнопка Пауза натиснута,тому я натискаю її знову,щоб продовжити дію.
+            else
+            {
+                //якщо запущений був раніше, але припинений паузою, то розблокoвую .
+                _busy.Set();
+                btnpause.Content = "Pause";
+            }
+        }
+
+        //обробник кнопки остаточного скасування додавання даних.
+        private void btncancel_Click(object sender, RoutedEventArgs e)
+        {
+            //властивість стає тру,відповідно до чого в КетСервіс додавання котів буде перервано.Відповідно і не записано в БД.
+            _catService.IsCancelled = true;
+
+            //кнопка стане неактивною.
+            btncancel.IsEnabled = false;
+
+            //кнопка ПАУЗА також стає неактивною.
+            btnpause.IsEnabled = false;
+        }
+        #endregion
+
+
+
+
+
         #region Thread BackgroundWorker
         /// <summary>
         /// Add cats when you push a button.
@@ -265,72 +337,6 @@ namespace WpfCatShop
         //}
         #endregion
 
-        #region Async/await
-
-        //Відображення зміни даних в UI.
-         void UpdateUI(int i)
-         {
-            Dispatcher.Invoke(new Action(() =>
-            {
-                btncatsnew.Content = $"{i}";
-
-                //в прогрессбарі відображається кількість елементів,відповідно до їх додавання.
-                pbsimple.Value = i; 
-                
-            }));
-
-         }       
-
-        //обробник кнопки додавання даних в базу.
-        public async void btncatsnew_Click(object sender, RoutedEventArgs e)
-        {
-            //виводимо дані про поточний потік.
-            Debug.WriteLine("Thread id: {0}", Thread.CurrentThread.ManagedThreadId);
-
-            //після натискання кнопка додавання перестає бути активною.
-            btncatsnew.IsEnabled = false;
-            _busy.Set();
-
-            //кількість котів для додавання.
-            int count = 3;
-            pbsimple.Maximum = count;
-            await _catService.InsertCatsAsync(count, _busy);   
-         
-        }
-
-
-        //обробник кнопки паузи рід час задачі з додавання нових даних в базу.
-        private void btnpause_Click(object sender, RoutedEventArgs e)
-         {
-            //якщо кнопка пауза не натиснута і ми її натискаємо.
-            if (btnpause.Content.ToString() == "Pause")
-            {      
-                //блокування виконання.
-                _busy.Reset();
-                btnpause.Content = "Resume";
-            }
-            //в іншому випадку,кнопка Пауза натиснута,тому я натискаю її знову,щоб продовжити дію.
-            else
-            {
-                //якщо запущений був раніше, але припинений паузою, то розблокoвую .
-                _busy.Set();
-                btnpause.Content = "Pause";
-            }
-        }
-
-        //обробник кнопки остаточного скасування додавання даних.
-        private void btncancel_Click(object sender, RoutedEventArgs e)
-        {
-            //властивість стає тру,відповідно до чого в КетСервіс додавання котів буде перервано.Відповідно і не записано в БД.
-            _catService.IsCancelled = true;
-
-            //кнопка стане неактивною.
-            btncancel.IsEnabled = false;
-
-            //кнопка ПАУЗА також стає неактивною.
-            btnpause.IsEnabled = false;
-        }
-        #endregion
 
 
     }
